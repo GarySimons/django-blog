@@ -41,6 +41,6 @@ def create_or_edit_post(request, pk=None):
         if form.is_valid():
             post = form.save()
             return redirect(post_detail, post.pk)
-        else:
-            form = BlogPostForm(instance=post)
-        return render(request, 'blogpostform.html', {'form': form})
+    else:
+        form = BlogPostForm(instance=post)
+    return render(request, 'blogpostform.html', {'form': form})
